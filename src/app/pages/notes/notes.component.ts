@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import {NoteService} from "../../services/note.service";
-import {Note} from "../models/note";
+import {Note} from "../../models/note";
 import {MatiereService} from "../../services/matiere.service";
-import {Matiere} from "../models/matiere";
+import {Matiere} from "../../models/matiere";
 import {UtilisateurService} from "../../services/utilisateur.service";
 import firebase from "firebase";
-import {Utilisateur} from "../models/utilisateur";
-import {Requete} from "../models/requete";
-import {Filiere} from "../models/filiere";
+import {Utilisateur} from "../../models/utilisateur";
+import {Requete} from "../../models/requete";
+import {Filiere} from "../../models/filiere";
 import {FiliereService} from "../../services/filiere.service";
 
 @Component({
@@ -23,6 +23,7 @@ export class NotesComponent implements OnInit {
   listeIdFiliere!: string[];
   fullPrintNote = false;
   allNotes: Note[] = [];
+  isLoadFinish = false;
 
   constructor(private userService: UtilisateurService, private noteService: NoteService, private matiereService: MatiereService, private filiereService: FiliereService) { }
 
@@ -33,11 +34,12 @@ export class NotesComponent implements OnInit {
         this.listeIdFiliere = this.currentUser.idFiliere;
         const pointe = this;
         this.listeIdFiliere.forEach(function (doc) {
-          pointe.filiereService.getFiliereWitchId(doc).then(
+          pointe.filiereService.getFiliereWitchId(doc.trim()).then(
             (donnee2) => {
               donnee2.idMatiere.forEach(function (doc1) {
                 pointe.noteService.getNotesWitchIdMatiere(doc1).then(
                   (donnee3) => {
+                    pointe.isLoadFinish = true;
                     donnee3.forEach(function (doc2) {
                       pointe.notes.push(doc2);
                       pointe.allNotes.push(doc2);
@@ -61,7 +63,7 @@ export class NotesComponent implements OnInit {
       this.notes = [];
       const pointe = this;
       this.allNotes.forEach(function (doc) {
-        if(doc.id.toLowerCase().indexOf(e.toLowerCase()) !== -1) {
+        if(doc.session.toLowerCase().indexOf(e.toLowerCase()) !== -1 || doc.annee.toLowerCase().indexOf(e.toLowerCase()) !== -1) {
           pointe.notes.push(doc);
         }
       });

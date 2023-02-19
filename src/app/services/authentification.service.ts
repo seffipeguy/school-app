@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import firebase from "firebase";
-import {Utilisateur} from "../pages/models/utilisateur";
+import {Utilisateur} from "../models/utilisateur";
 
 @Injectable({
   providedIn: 'root'

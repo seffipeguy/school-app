@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import {Note} from "../pages/models/note";
+import {Note} from "../models/note";
 import firebase from "firebase";
-import {Filiere} from "../pages/models/filiere";
+import {Filiere} from "../models/filiere";
 
 @Injectable({
   providedIn: 'root'

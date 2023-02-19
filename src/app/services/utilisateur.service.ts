@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Utilisateur} from "../pages/models/utilisateur";
+import {Utilisateur} from "../models/utilisateur";
 import firebase from "firebase";
 
 @Injectable({

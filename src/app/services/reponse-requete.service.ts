@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import firebase from "firebase";
-import {ReponseRequete} from "../pages/models/reponse-requete";
+import {ReponseRequete} from "../models/reponse-requete";
 
 @Injectable({
   providedIn: 'root'

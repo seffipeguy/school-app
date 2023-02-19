@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Matiere} from "../pages/models/matiere";
+import {Matiere} from "../models/matiere";
 import firebase from "firebase";
 
 @Injectable({

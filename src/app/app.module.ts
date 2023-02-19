@@ -8,12 +8,13 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { ToastComponent } from './shared/toast/toast.component';
 import { ProfilComponent } from './pages/profil/profil.component';
 import { NotesComponent } from './pages/notes/notes.component';
 import { RequestComponent } from './pages/request/request.component';
 import { NoteComponent } from './shared/note/note.component';
+import { AdminComponent } from './pages/admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -27,13 +28,15 @@ import { NoteComponent } from './shared/note/note.component';
     ProfilComponent,
     NotesComponent,
     RequestComponent,
-    NoteComponent
+    NoteComponent,
+    AdminComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        FormsModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

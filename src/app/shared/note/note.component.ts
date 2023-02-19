@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Matiere} from "../../pages/models/matiere";
+import {Matiere} from "../../models/matiere";
 import {MatiereService} from "../../services/matiere.service";
-import {Note} from "../../pages/models/note";
+import {Note} from "../../models/note";
 import {NoteService} from "../../services/note.service";
 
 @Component({

@@ -8,6 +8,7 @@ import {AuthGuardService} from "./services/auth-guard.service";
 import {ProfilComponent} from "./pages/profil/profil.component";
 import {NotesComponent} from "./pages/notes/notes.component";
 import {RequestComponent} from "./pages/request/request.component";
+import {AdminComponent} from "./pages/admin/admin.component";
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'profil', canActivate: [AuthGuardService], component: ProfilComponent },
   { path: 'notes', canActivate: [AuthGuardService], component: NotesComponent },
   { path: 'request', canActivate: [AuthGuardService], component: RequestComponent },
+  { path: 'admin', canActivate: [AuthGuardService], component: AdminComponent },
 ];
 
 @NgModule({

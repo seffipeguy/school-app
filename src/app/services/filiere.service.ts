@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Filiere} from "../pages/models/filiere";
+import {Filiere} from "../models/filiere";
 import firebase from "firebase";
 
 @Injectable({
@@ -24,7 +24,7 @@ export class FiliereService {
 
   async getFiliereWitchId(id: any) {
     return new Promise<Filiere>((resolve, reject) => {
-      firebase.firestore().collection('filieres').doc(id).get().then(
+      firebase.firestore().collection('filieres').doc(id).onSnapshot(
         (docRef) => {
           resolve(docRef.data() as Filiere);
         },
